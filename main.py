@@ -1,11 +1,12 @@
-try:
-    num1 = float(input("Please enter ur first number: "))
-    num2 = float(input("Please enter ur second number: "))
+filename = "notes.txt"
 
-    final_answer = num1 / num2
-    print(f"Ur answer is {final_answer}")
+# Запис у файл
+with open(filename, "a", encoding="utf-8") as file:
+    text = input("Що запишемо у файл? ")
+    file.write(text + "\n")
 
-except ZeroDivisionError:
-    print("Error: zero division is impossible")
-except ValueError:
-    print("Error: please enter valid numbers")
+# Читання з файлу
+print("\nОсь що вже є у файлі:")
+with open(filename, "r", encoding="utf-8") as file:
+    content = file.read()
+    print(content)
